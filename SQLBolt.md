@@ -48,7 +48,7 @@ SELECT * FROM movies;
 ```
 
 ## SQL Lesson 2: Queries with constraints (Pt. 1)
-
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the movie with a row id of 6
 
 ```
@@ -77,6 +77,7 @@ SELECT * FROM movies LIMIT 5;
 ```
 
 ## SQL Lesson 3: Queries with constraints (Pt. 2)
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find all the Toy Story movies
 ```
 SELECT * FROM movies
@@ -102,6 +103,7 @@ WHERE Title LIKE 'WALL-%';
 ```
 
 ## SQL Lesson 4: Filtering and sorting Query results
+[Back to Table of Contents](#table-of-contents)<br>
 1\. List all directors of Pixar movies (alphabetically), without duplicates
 ```
 SELECT DISTINCT Director FROM movies
@@ -127,6 +129,7 @@ ORDER BY Title LIMIT 5 OFFSET 5;
 ```
 
 ## SQL Review: Simple SELECT Queries
+[Back to Table of Contents](#table-of-contents)<br>
 1\. List all the Canadian cities and their populations
 ```
 SELECT * FROM north_american_cities
@@ -158,7 +161,7 @@ WHERE Country='United States'
 ORDER BY Population DESC LIMIT 2 OFFSET 2;
 ```
 ## SQL Lesson 6: Multi-table queries with JOINs
-
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the domestic and international sales for each movie
 ```
 SELECT Movies.title, Boxoffice.Domestic_sales, Boxoffice.International_sales FROM Movies
@@ -180,7 +183,7 @@ ORDER BY rating DESC;
 ```
 
 ## SQL Lesson 7: OUTER JOINs
-
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the list of all buildings that have employees
 ```
 SELECT DISTINCT building FROM employees;
@@ -198,13 +201,14 @@ LEFT JOIN Employees ON Building = Building_name;
 ```
 
 ## SQL Lesson 8: A short note on NULLs
+[Back to Table of Contents](#table-of-contents)<br>
 1\. SELECT Name, Role FROM employees WHERE Building IS NULL;
 
 2\. Find the names of the buildings that hold no employees
 SELECT Building_name FROM buildings LEFT JOIN Employees ON Building_name=Building WHERE Building IS NULL;
 
 ## SQL Lesson 9: Queries with expressions
-
+[Back to Table of Contents](#table-of-contents)<br>
 1\. List all movies and their combined sales in millions of dollars
  ```
 SELECT '$'+ ROUND((Domestic_Sales + International_Sales)/1000000,2) AS Sales, *
@@ -235,6 +239,7 @@ WHERE Year % 2 = 0
 ```
 
 ## SQL Lesson 10: Queries with aggregates (Pt. 1)
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the longest time that an employee has been at the studio
 ```
 SELECT MAX(Years_employed) FROM employees;
@@ -252,6 +257,7 @@ SELECT Building, SUM(Years_employed) FROM employees GROUP BY Building;
 
 
 ## SQL Lesson 11: Queries with aggregates (Pt. 2)
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the number of Artists in the studio (without a HAVING clause)
  ```
 SELECT COUNT(Role) FROM employees WHERE Role='Artist';
@@ -269,6 +275,7 @@ SELECT Role, SUM(Years_employed) FROM employees GROUP BY Role HAVING Role='Engin
 
 
 ## SQL Lesson 12: Order of execution of a Query
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Find the number of movies each director has directed
 ```
 SELECT Director, COUNT(Director) FROM movies GROUP BY Director;
@@ -280,6 +287,7 @@ SELECT Director, SUM(Domestic_sales + International_sales) AS 'Total Sales' FROM
 ```
 
 ## SQL Lesson 13: Inserting rows
+[Back to Table of Contents](#table-of-contents)<br>
 1\. Add the studio's new production, Toy Story 4 to the list of movies (you can use any director)
 ```
 INSERT INTO movies (Title,Director,Year,Length_minutes) VALUES ('Toy Story 4','John Lasseter',2019,120);
@@ -292,6 +300,7 @@ INSERT INTO boxoffice (Movie_id,Rating,Domestic_sales,International_sales) VALUE
 
 
 ## SQL Lesson 14: Updating rows
+[Back to Table of Contents](#table-of-contents)<br>
 1\. The director for A Bug's Life is incorrect, it was actually directed by John Lasseter
 ```
 UPDATE movies SET Director='John Lasseter' WHERE Id=2
@@ -308,6 +317,7 @@ UPDATE movies SET Title='Toy Story 3', Director='Lee Unkrich' WHERE Title='Toy S
 ```
 
 ## SQL Lesson 15: Deleting rows
+[Back to Table of Contents](#table-of-contents)<br>
 1\. This database is getting too big, lets remove all movies that were released before 2005.
 ```
 DELETE FROM movies WHERE Year<2005;
